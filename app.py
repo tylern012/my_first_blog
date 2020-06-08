@@ -155,11 +155,12 @@ def delete_blog(id):
     flash(" Your blog has been deleted", 'success')
     return redirect('/my-blogs')
 
-app.route('/log-out/')
-def log_out():
-    session.pop()
-    flash("You have been logged out", 'info')
-    return redirect('/my-blogs')
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("You have been logged out.", 'info')
+    return redirect('/')
+
 
 
 if __name__ == '__main__':
